@@ -1,5 +1,5 @@
 var Fly = function(top, left, timeBetweenSteps) {
-  left = -50;
+  left = -200;
   top = Math.floor(Math.random()* $('body').height()/2);
   timeBetweenSteps = 500;
 

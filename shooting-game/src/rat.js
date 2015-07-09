@@ -1,6 +1,6 @@
 var Rat = function(top, left, timeBetweenSteps) {
   left = $('body').width() + 300;
-  top = Math.random()* $('body').height()/2 + Math.floor(Math.random()* $('body').height()/2);
+  top = $('body').height()/2 + Math.floor(Math.random()* $('body').height()/2) - 100;
   timeBetweenSteps = 500;
 
   Animal.apply(this, arguments);

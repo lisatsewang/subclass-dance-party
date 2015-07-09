@@ -1,10 +1,20 @@
 body, html{
   height:100%;
 }
+
+html { 
+  background: url(img/flower-field.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body{
   margin: 0px;
   background-size: cover;
   font-size: 18px;
+  cursor: crosshair;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -13,11 +23,15 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
-.score-text {
+.score-text , .time-text {
   margin: 0;
-  padding:5px 12px;
+  padding:5px 50px;
   float: left;
   color: red;
+}
+.time-text {
+  padding-left: 200px;
+  color: lightblue;
 }
 .topbar{
   height:32px;
@@ -28,4 +42,18 @@ body, a:link, a:visited, a:active{
 }
 .animal{
   position:absolute;
+}
+
+.game-over {
+  display: none;
+  text-align: center;
+  color: white;
+}
+
+.game-over h1{
+  font-size: 70px;
+}
+
+.game-over h3{
+  font-size: 50px;
 }

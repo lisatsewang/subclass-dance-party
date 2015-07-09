@@ -1,6 +1,7 @@
 $(document).ready(function(){
-  window.animalConstructors = ['Rat', 'Fly'];
-
+  window.animalConstructors = ['Rat', 'Fly', 'Bambi'];
+  window.generateAnimalId = 0;
+  window.decrementTimeId = 0;
 
   var addAnimal = function(animalMakerFunctionName) {
     var animalMakerFunction = window[animalMakerFunctionName];
@@ -30,13 +31,46 @@ $(document).ready(function(){
   });
 
   $('.start').on('click', function() {
+    $('.animal').remove();
+    $('.time').text(30);
+    $('.game-over').hide();
+    $('.score').text(0);
+
+    if (generateAnimalId) {
+      clearInterval(generateAnimalId);
+    }
+    if (decrementTimeId) {
+      clearInterval(decrementTimeId);
+    }
+
     var generateAnimal = function() {
       addAnimal(animalConstructors[Math.floor(Math.random() * animalConstructors.length)]);
-
-      setTimeout(generateAnimal, 500 + Math.random()* 1000);
     };
 
-    generateAnimal();
+    generateAnimalId = setInterval(generateAnimal, 500 + Math.random()* 1000);
+
+
+    var decrementTime = function() {
+      var remainingTime = parseInt($('.time').text());
+
+      if (remainingTime === 0) {
+        $('.animal').remove();
+        
+        var score = $('.score').text();
+        $('.final-score').text(score);
+        $('.game-over').show();
+
+        clearInterval(generateAnimalId);
+        clearInterval(decrementTimeId);
+
+      } else {
+        $('.time').text(remainingTime - 1);
+      }
+
+    };
+
+    decrementTimeId = setInterval(decrementTime, 1000);
+
   });
 });
 
