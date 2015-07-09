@@ -5,6 +5,7 @@ var Fly = function(top, left, timeBetweenSteps) {
 
   Animal.apply(this, arguments);
 
+  this.$node.append('<img src="img/fly.png">');
   this.$node.data('score', 100);
   this.isUpper = true;
   this.lower = this.top + 150;
@@ -26,5 +27,5 @@ Fly.prototype.step = function() {
   style.left = parseInt(this.$node.css('left')) + 100;
 
   this.$node.animate(style, 500);
-}
+};
 
