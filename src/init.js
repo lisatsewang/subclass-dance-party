@@ -28,5 +28,22 @@ $(document).ready(function(){
     );
     $('body').append(dancer.$node);
   });
+
+  $('.lineUpButton').on('click', function(event) {
+
+    var step = $('body').width()/(dancers.length + 1);
+
+    dancers.forEach(function(dancer, i) {
+      dancer.setPosition($('body').height()/2, step * (i+1));
+    });
+  });
+
+  $(document).on("click", function(event) {
+    $(this).animate({
+    width: "50px",
+    opacity: 0,
+  }, 1500 );
+  });
+
 });
 
