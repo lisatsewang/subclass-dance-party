@@ -27,6 +27,29 @@ $(document).ready(function(){
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+
+    dancer.$node.on("click", function(event) {
+      console.log('clicked the dancer up in here');
+      $(this).animate({
+        width: "100px",
+        height: "100px",
+        "border-radius": "100px",
+        opacity: 0,
+      }, 1000 );
+
+      setTimeout(function() {
+        $(this).remove();
+      }, 1000);
+
+      for (var i = 0; i < window.dancers.length; i++) {
+        if (window.dancers[i] === dancer) {
+          // match! remove from window.dancers
+          dancers.splice(i, 1)
+        }
+
+      }
+      
+    });
   });
 
   $('.lineUpButton').on('click', function(event) {
@@ -38,12 +61,13 @@ $(document).ready(function(){
     });
   });
 
-  $(document).on("click", function(event) {
-    $(this).animate({
-    width: "50px",
-    opacity: 0,
-  }, 1500 );
-  });
+  // $(".dancer").on("click", function(event) {
+  //   console.log("dancer clicked");
+  //   $(this).animate({
+  //   width: "50px",
+  //   opacity: 0,
+  // }, 1500 );
+  // });
 
 });
 

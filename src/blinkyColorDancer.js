@@ -1,7 +1,7 @@
 var BlinkyColorDancer = function(top, left, timeBetweenSteps) {
   BlinkyDancer.apply(this, arguments);
 
-  this.timeBetweenSteps = 100;
+  this.timeBetweenSteps = 500;
 };
 
 BlinkyColorDancer.prototype = Object.create(BlinkyDancer.prototype);
